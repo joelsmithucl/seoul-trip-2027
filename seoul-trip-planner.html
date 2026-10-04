@@ -51,6 +51,9 @@
   .tag.hist{background:rgba(192,140,255,.12);color:#dcc4ff;border-color:rgba(192,140,255,.3)}
   .tag.maybe{background:rgba(61,220,151,.12);color:#9ff0cd;border-color:rgba(61,220,151,.3)}
   ul{margin:8px 0 0;padding-left:20px}li{margin:3px 0}
+  .nl-head{margin:10px 0 2px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    color:#c08cff;display:flex;align-items:center;gap:6px}
+  .nl-head::before{content:"🎶"}
   .checklist{list-style:none;padding:0;margin:8px 0;columns:2;column-gap:28px}
   .checklist li{break-inside:avoid;margin:7px 0;padding-left:28px;position:relative;cursor:pointer;color:var(--muted)}
   .checklist li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;
@@ -354,8 +357,8 @@
     <a class="link" href="https://www.kkday.com/en/product/18839" target="_blank" rel="noopener">Vivaldi Ski Day<span>If you go skiing</span></a>
   </div>
 
-  <h2><span class="em">🍜</span> Food picks &amp; maps by city</h2>
-  <p style="color:var(--muted);font-size:14px;margin:0 0 4px">Each pick opens a Naver Map search (the most reliable maps in Korea). Always double-check opening hours — some old institutions close early or take a weekly rest day.</p>
+  <h2><span class="em">🍜</span> Food &amp; nightlife by city</h2>
+  <p style="color:var(--muted);font-size:14px;margin:0 0 4px">Food picks plus 🎶 K-pop / live-music / nightlife spots. Each link opens a Naver Map search (the most reliable maps in Korea). Always double-check opening hours &amp; set times — some old eateries close early, and venues change line-ups often.</p>
 
   <div class="card food-card city-seoul" style="scroll-margin-top:0">
     <div class="day-head"><span class="date">🏙️ Seoul</span><span class="where">palaces · markets · K-pop</span></div>
@@ -364,6 +367,13 @@
       <li><b>Tosokchon Samgyetang</b> — ginseng chicken soup near Gyeongbokgung (perfect in the cold) · <a href="https://map.naver.com/p/search/토속촌 삼계탕" target="_blank" rel="noopener">map</a></li>
       <li><b>Myeongdong Kyoja</b> — kalguksu &amp; mandu institution · <a href="https://map.naver.com/p/search/명동교자" target="_blank" rel="noopener">map</a></li>
       <li><b>Hongdae</b> — street food, pojangmacha &amp; late-night eats · <a href="https://map.naver.com/p/search/홍대" target="_blank" rel="noopener">map</a></li>
+    </ul>
+    <div class="nl-head">K-pop · live music · nightlife</div>
+    <ul>
+      <li><b>HiKR Ground (한국관광공사 하이커 그라운드)</b> — free K-pop/media playground run by KTO near Cheonggyecheon · <a href="https://map.naver.com/p/search/하이커그라운드" target="_blank" rel="noopener">map</a></li>
+      <li><b>Hongdae clubs &amp; buskers</b> — the heart of Seoul's live music &amp; club scene (FF, indie bars, weekend street performances) · <a href="https://map.naver.com/p/search/홍대 클럽거리" target="_blank" rel="noopener">map</a></li>
+      <li><b>Itaewon / Gangnam</b> — bigger clubs &amp; cocktail bars for a late night · <a href="https://map.naver.com/p/search/이태원 클럽" target="_blank" rel="noopener">map</a></li>
+      <li><i>Tip:</i> check for a <b>live music hall</b> show (e.g. Rolling Hall, Yes24 Live Hall) or a K-pop fan event while you're in town</li>
     </ul>
   </div>
 
@@ -374,6 +384,11 @@
       <li><b>Gogung (고궁)</b> — well-known bibimbap spot (dolsot &amp; brass-bowl styles) · <a href="https://map.naver.com/p/search/전주 고궁" target="_blank" rel="noopener">map</a></li>
       <li><b>Makgeolli alley (막걸리 골목)</b> — rice-wine tables groaning with free side dishes · <a href="https://map.naver.com/p/search/전주 막걸리골목" target="_blank" rel="noopener">map</a></li>
     </ul>
+    <div class="nl-head">live music · nightlife</div>
+    <ul>
+      <li><b>Gaeksa / Jeonju Film Street area (객사·영화의거리)</b> — the city's buzziest night zone: bars, live cafés &amp; buskers · <a href="https://map.naver.com/p/search/전주 영화의거리" target="_blank" rel="noopener">map</a></li>
+      <li><b>Hanok Village night walk</b> — lantern-lit lanes, tea houses &amp; cosy makgeolli bars (mellow winter evening) · <a href="https://map.naver.com/p/search/전주한옥마을" target="_blank" rel="noopener">map</a></li>
+    </ul>
   </div>
 
   <div class="card food-card city-busan" style="scroll-margin-top:0">
@@ -383,6 +398,11 @@
       <li><b>Seomyeon dwaeji-gukbap alley</b> — Busan's signature pork-broth rice soup · <a href="https://map.naver.com/p/search/서면 돼지국밥" target="_blank" rel="noopener">map</a></li>
       <li><b>Gukje &amp; BIFF Square street food</b> — ssiat hotteok (seed-stuffed pancake) · <a href="https://map.naver.com/p/search/BIFF광장" target="_blank" rel="noopener">map</a></li>
     </ul>
+    <div class="nl-head">live music · nightlife</div>
+    <ul>
+      <li><b>Seomyeon</b> — Busan's biggest nightlife hub: clubs, bars &amp; late-night BBQ · <a href="https://map.naver.com/p/search/서면 번화가" target="_blank" rel="noopener">map</a></li>
+      <li><b>Gwangalli Beach bars (광안리)</b> — ocean-view cocktail &amp; music bars under the lit-up bridge · <a href="https://map.naver.com/p/search/광안리해수욕장" target="_blank" rel="noopener">map</a></li>
+    </ul>
   </div>
 
   <div class="card food-card city-gyeongju" style="scroll-margin-top:0">
@@ -391,6 +411,12 @@
       <li><b>Ssambap Street (쌈밥거리)</b> near Daereungwon — wrap-your-own rice feasts · <a href="https://map.naver.com/p/search/경주 쌈밥거리" target="_blank" rel="noopener">map</a></li>
       <li><b>Hwangnam-ppang (황남빵)</b> — the famous red-bean pastry, great souvenir · <a href="https://map.naver.com/p/search/황남빵" target="_blank" rel="noopener">map</a></li>
       <li><b>Gyeongju Jungang Market</b> — local snacks &amp; warm street food · <a href="https://map.naver.com/p/search/경주 중앙시장" target="_blank" rel="noopener">map</a></li>
+    </ul>
+    <div class="nl-head">evenings (quiet, historic town)</div>
+    <ul>
+      <li><b>Donggung &amp; Wolji Pond at night (동궁과 월지)</b> — the signature after-dark sight, palace reflections on the water · <a href="https://map.naver.com/p/search/동궁과 월지" target="_blank" rel="noopener">map</a></li>
+      <li><b>Hwangnidan-gil (황리단길)</b> — trendy lane of cafés, dessert &amp; craft-beer bars near the tombs · <a href="https://map.naver.com/p/search/황리단길" target="_blank" rel="noopener">map</a></li>
+      <li><i>Note:</i> Gyeongju is sleepy at night — save the big nightlife for Seoul &amp; Busan</li>
     </ul>
   </div>
 
