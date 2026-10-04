@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Korea Winter Trip · 1–15 Jan 2027</title>
+<style>
+  :root{
+    --bg:#0f1221; --panel:#191d33; --panel2:#20253f; --ink:#eef1ff;
+    --muted:#9aa3c7; --accent:#ff5a7a; --accent2:#5ac8fa; --line:#2b3156;
+    --ok:#3ddc97; --warn:#ffcf5c; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#0b0e1c,#141830 60%);color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  header{padding:40px 20px 28px;text-align:center;
+    background:radial-gradient(1200px 300px at 50% -40%,rgba(255,90,122,.25),transparent);}
+  h1{margin:0 0 6px;font-size:clamp(26px,5vw,42px);letter-spacing:.5px}
+  .sub{color:var(--muted);font-size:17px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 18px 80px}
+  .meta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
+  .chip{background:var(--panel);border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:14px;color:var(--muted)}
+  .chip b{color:var(--ink)}
+  h2{margin:40px 0 14px;font-size:22px;display:flex;align-items:center;gap:10px}
+  h2 .em{font-size:24px}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--warn);
+    border-radius:12px;padding:14px 16px;margin:14px 0;color:#f3e9c9}
+  .note.info{border-left-color:var(--accent2);color:#d8f1ff}
+  .legs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0 4px}
+  .leg{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
+  .leg b{display:block;font-size:13px;color:var(--accent2)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 18px;margin:12px 0;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+  .city-seoul::before{background:var(--accent)}
+  .city-busan::before{background:#5ac8fa}
+  .city-gyeongju::before{background:#c08cff}
+  .city-jeonju::before{background:#ffcf5c}
+  .city-move::before{background:#3ddc97}
+  .day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px}
+  .date{font-weight:700;font-size:17px}
+  .where{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+  .tags{margin:8px 0 2px;display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:12px;padding:3px 9px;border-radius:999px;background:rgba(90,200,250,.12);
+    color:#9fe0ff;border:1px solid rgba(90,200,250,.3)}
+  .tag.food{background:rgba(255,207,92,.12);color:#ffe39a;border-color:rgba(255,207,92,.3)}
+  .tag.hist{background:rgba(192,140,255,.12);color:#dcc4ff;border-color:rgba(192,140,255,.3)}
+  .tag.maybe{background:rgba(61,220,151,.12);color:#9ff0cd;border-color:rgba(61,220,151,.3)}
+  ul{margin:8px 0 0;padding-left:20px}li{margin:3px 0}
+  .checklist{list-style:none;padding:0;margin:8px 0;columns:2;column-gap:28px}
+  .checklist li{break-inside:avoid;margin:7px 0;padding-left:28px;position:relative;cursor:pointer;color:var(--muted)}
+  .checklist li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;
+    border:2px solid var(--line);border-radius:5px;background:var(--panel2)}
+  .checklist li.done{color:#6f779c;text-decoration:line-through}
+  .checklist li.done::before{background:var(--ok);border-color:var(--ok);content:"✓";
+    color:#07301f;font-weight:800;text-align:center;line-height:16px;font-size:13px}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:15px;background:var(--panel);
+    border-radius:12px;overflow:hidden}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--panel2);color:var(--accent2);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  tfoot td{font-weight:700;background:var(--panel2)}
+  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:8px}
+  a.link{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:12px 14px;text-decoration:none;color:var(--ink);transition:.15s}
+  a.link:hover{border-color:var(--accent2);transform:translateY(-2px)}
+  a.link span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 10px}
+  @media(max-width:640px){.checklist{columns:1}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🇰🇷 Korea Winter Adventure</h1>
+  <div class="sub">A two-week rail trip for two · Seoul · Busan · Gyeongju · Jeonju</div>
+  <div class="meta">
+    <span class="chip">✈️ Arrive <b>Fri 1 Jan 2027, 16:25</b> (ICN)</span>
+    <span class="chip">🛫 Depart <b>Fri 15 Jan 2027, 13:20</b></span>
+    <span class="chip">🧑‍🤝‍🧑 <b>2 travellers</b></span>
+    <span class="chip">💶 <b>Mid-range</b></span>
+    <span class="chip">🚄 <b>KORAIL 5-Day Flexible Pass</b></span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2><span class="em">🧭</span> How this trip flows</h2>
+  <p>North to south by rail, then back to Seoul to fly home. You stay with friends in Seoul for the first 3 nights, loop down through the historic south, and return to Seoul for the final stretch.</p>
+  <div class="legs">
+    <div class="leg"><b>SEG 1</b>Seoul (friends) · 3 nts</div>
+    <div class="leg"><b>SEG 2</b>Busan · 3 nts</div>
+    <div class="leg"><b>SEG 3</b>Gyeongju · 2 nts</div>
+    <div class="leg"><b>SEG 4</b>Temple stay · 1 nt</div>
+    <div class="leg"><b>SEG 5</b>Jeonju · 2 nts</div>
+    <div class="leg"><b>SEG 6</b>Seoul · 2 nts</div>
+  </div>
+
+  <div class="note info"><b>🚄 KORAIL Pass reality check:</b> there is no "10-day" pass — passes come in 2/3/4/5 days and the multi-day ones are <b>flexible</b> within a 10-day activation window (that's where "10 days" comes from). The <b>5-Day Flexible Saver Pass</b> (for 2 travelling together) covers all four intercity hops with a spare day. Reserve seats early — since Oct 2026, KTX seats open two months before departure.</div>
+
+  <div class="note"><b>⏱️ Departure-day math:</b> 13:20 flight → be at ICN by ~11:00 → AREX is ~43 min, so leave central Seoul by ~09:30. <b>Jan 14 is your last real day; Jan 15 is airport-only.</b></div>
+
+  <h2><span class="em">🗓️</span> Day by day</h2>
+
+  <div class="card city-seoul">
+    <div class="day-head"><span class="date">Fri · Jan 1</span><span class="where">Seoul · arrival</span></div>
+    <div class="tags"><span class="tag">nightlife</span></div>
+    <ul>
+      <li>Land 16:25, AREX / limousine bus into the city, settle in with friends</li>
+      <li>Easy first night — Hongdae for dinner &amp; drinks</li>
+    </ul>
+  </div>
+
+  <div class="card city-seoul">
+    <div class="day-head"><span class="date">Sat · Jan 2</span><span class="where">Seoul · palaces</span></div>
+    <div class="tags"><span class="tag hist">history</span><span class="tag food">food</span><span class="tag">art</span></div>
+    <ul>
+      <li>Gyeongbokgung Palace + National Folk Museum (indoor-friendly)</li>
+      <li>Bukchon Hanok Village → Insadong for tea, galleries &amp; antiques</li>
+      <li>Evening: Gwangjang Market street-food crawl</li>
+    </ul>
+  </div>
+
+  <div class="card city-seoul">
+    <div class="day-head"><span class="date">Sun · Jan 3</span><span class="where">Seoul · DMZ</span></div>
+    <div class="tags"><span class="tag hist">history</span><span class="tag">K-pop / music</span></div>
+    <ul>
+      <li><b>DMZ day tour</b> — standard route (3rd Tunnel, Dora Observatory, Imjingak). JSA/Panmunjom as a bonus if running.</li>
+      <li>Evening: live music / K-pop — a show, HBD Hongdae clubs, or a listening bar</li>
+    </ul>
+  </div>
+
+  <div class="card city-seoul">
+    <div class="day-head"><span class="date">Mon · Jan 4</span><span class="where">Seoul · ski (maybe)</span></div>
+    <div class="tags"><span class="tag maybe">ski — optional</span></div>
+    <ul>
+      <li><b>Maybe:</b> Vivaldi Park day trip — ~90 min shuttle from Hongdae/Myeongdong, beginner lessons + gear rental available</li>
+      <li><b>Or:</b> a slower Seoul day — Dongdaemun (DDP) + shopping, a jjimjilbang, more time with friends</li>
+    </ul>
+  </div>
+
+  <div class="card city-move">
+    <div class="day-head"><span class="date">Tue · Jan 5</span><span class="where">→ Busan · Pass day 1</span></div>
+    <div class="tags"><span class="tag food">food</span><span class="tag">art</span></div>
+    <ul>
+      <li>KTX Seoul → Busan (~2h40)</li>
+      <li>Gamcheon Culture Village (hillside art), Haeundae, seafood at Jagalchi Market</li>
+    </ul>
+  </div>
+
+  <div class="card city-busan">
+    <div class="day-head"><span class="date">Wed · Jan 6</span><span class="where">Busan · springs</span></div>
+    <div class="tags"><span class="tag">hot springs</span><span class="tag">shopping</span><span class="tag">nightlife</span></div>
+    <ul>
+      <li>Spa Land at Centum City (big jjimjilbang / hot springs) + Shinsegae Centum shopping</li>
+      <li>Evening in Seomyeon</li>
+    </ul>
+  </div>
+
+  <div class="card city-busan">
+    <div class="day-head"><span class="date">Thu · Jan 7</span><span class="where">Busan · temples &amp; coast</span></div>
+    <div class="tags"><span class="tag hist">history</span></div>
+    <ul>
+      <li>Haedong Yonggungsa (seaside temple) + Beomeosa</li>
+      <li>Optional: Huinnyeoul coastal village</li>
+    </ul>
+  </div>
+
+  <div class="card city-move">
+    <div class="day-head"><span class="date">Fri · Jan 8</span><span class="where">→ Gyeongju · Pass day 2</span></div>
+    <div class="tags"><span class="tag hist">history</span></div>
+    <ul>
+      <li>Short train hop Busan → Gyeongju</li>
+      <li><b>Gyeongju National Museum</b>, Daereungwon royal tombs, Cheomseongdae observatory</li>
+    </ul>
+  </div>
+
+  <div class="card city-gyeongju">
+    <div class="day-head"><span class="date">Sat · Jan 9</span><span class="where">Gyeongju · UNESCO</span></div>
+    <div class="tags"><span class="tag hist">history</span></div>
+    <ul>
+      <li>Bulguksa Temple + Seokguram Grotto (UNESCO)</li>
+      <li>Donggung Palace &amp; Wolji Pond lit up after dark</li>
+    </ul>
+  </div>
+
+  <div class="card city-gyeongju">
+    <div class="day-head"><span class="date">Sun · Jan 10</span><span class="where">Temple stay · 1 night</span></div>
+    <div class="tags"><span class="tag">temple stay</span></div>
+    <ul>
+      <li><b>Overnight temple stay</b> — e.g. Golgulsa (Sunmudo martial-art meditation) near Gyeongju, or Magoksa</li>
+      <li>Book early via eng.templestay.com — confirm an English-friendly program</li>
+    </ul>
+  </div>
+
+  <div class="card city-move">
+    <div class="day-head"><span class="date">Mon · Jan 11</span><span class="where">→ Jeonju · Pass day 3</span></div>
+    <div class="tags"><span class="tag food">food</span><span class="tag">art</span></div>
+    <ul>
+      <li>Train to Jeonju; Jeonju Hanok Village</li>
+      <li>Bibimbap in its birthplace, hanji paper &amp; craft workshops</li>
+    </ul>
+  </div>
+
+  <div class="card city-jeonju">
+    <div class="day-head"><span class="date">Tue · Jan 12</span><span class="where">Jeonju · food &amp; drink</span></div>
+    <div class="tags"><span class="tag food">food</span><span class="tag">nightlife</span></div>
+    <ul>
+      <li>Nambu Market, makgeolli alley in the evening</li>
+      <li>Optional: Jaman mural village (art)</li>
+    </ul>
+  </div>
+
+  <div class="card city-move">
+    <div class="day-head"><span class="date">Wed · Jan 13</span><span class="where">→ Seoul · Pass day 4</span></div>
+    <div class="tags"><span class="tag">art</span><span class="tag">shopping</span></div>
+    <ul>
+      <li>KTX Jeonju → Seoul (~1h40)</li>
+      <li>Afternoon: Leeum or MMCA (art), DDP, Myeongdong shopping</li>
+    </ul>
+  </div>
+
+  <div class="card city-seoul">
+    <div class="day-head"><span class="date">Thu · Jan 14</span><span class="where">Seoul · last full day</span></div>
+    <div class="tags"><span class="tag">K-pop</span><span class="tag">shopping</span><span class="tag">hot springs</span></div>
+    <ul>
+      <li>Gangnam / Seongsu — K-pop culture, cafés, boutiques</li>
+      <li>Afternoon spa, farewell dinner, pack</li>
+    </ul>
+  </div>
+
+  <div class="card city-move">
+    <div class="day-head"><span class="date">Fri · Jan 15</span><span class="where">Departure</span></div>
+    <ul>
+      <li>Leave central Seoul by ~09:30, ICN by ~11:00 for the 13:20 flight</li>
+    </ul>
+  </div>
+
+  <h2><span class="em">✅</span> Booking &amp; packing checklist</h2>
+  <p style="color:var(--muted);font-size:14px;margin:0">Tap items to tick them off — saved in this browser.</p>
+  <ul class="checklist" id="chk">
+    <li>Buy KORAIL 5-Day Flexible Saver Pass (2 pax)</li>
+    <li>Reserve KTX seats (open ~2 months out)</li>
+    <li>Book DMZ tour (passports required, early!)</li>
+    <li>Check JSA/Panmunjom availability for Jan 3</li>
+    <li>Book temple stay (eng.templestay.com)</li>
+    <li>Decide + maybe book Vivaldi ski day</li>
+    <li>Book Busan, Gyeongju, Jeonju hotels</li>
+    <li>Download Naver Map + Kakao Map apps</li>
+    <li>Get T-money transit card</li>
+    <li>Arrange eSIM / pocket wifi</li>
+    <li>Confirm K-ETA / entry requirements</li>
+    <li>Travel insurance (incl. skiing)</li>
+    <li>Thermal layers, gloves, hand-warmers</li>
+    <li>Grippy footwear (icy pavements)</li>
+    <li>Spa/temple: slip-on shoes, modest layers</li>
+    <li>Notify bank / set up tap-to-pay</li>
+  </ul>
+
+  <h2><span class="em">💶</span> Rough mid-range budget (per couple, 14 days)</h2>
+  <div class="note info" style="font-size:14px">Ballpark planning figures in GBP — exclude flights. Treat as a starting frame; I'll refine once you pick hotels and lock the ski/temple days.</div>
+  <table>
+    <thead><tr><th>Category</th><th class="num">Low</th><th class="num">High</th></tr></thead>
+    <tbody>
+      <tr><td>Accommodation (13 nights; 4 free w/ friends)</td><td class="num">£650</td><td class="num">£1,100</td></tr>
+      <tr><td>KORAIL 5-Day Pass ×2</td><td class="num">£150</td><td class="num">£210</td></tr>
+      <tr><td>Food &amp; drink</td><td class="num">£700</td><td class="num">£1,100</td></tr>
+      <tr><td>DMZ tour ×2</td><td class="num">£70</td><td class="num">£140</td></tr>
+      <tr><td>Temple stay ×2</td><td class="num">£60</td><td class="num">£100</td></tr>
+      <tr><td>Ski day ×2 (optional)</td><td class="num">£120</td><td class="num">£200</td></tr>
+      <tr><td>Spas / hot springs</td><td class="num">£40</td><td class="num">£90</td></tr>
+      <tr><td>Attractions, local transit, shopping buffer</td><td class="num">£350</td><td class="num">£700</td></tr>
+    </tbody>
+    <tfoot><tr><td>Estimated total (ex-flights)</td><td class="num">~£2,140</td><td class="num">~£3,640</td></tr></tfoot>
+  </table>
+
+  <h2><span class="em">🔗</span> Quick booking links</h2>
+  <div class="links">
+    <a class="link" href="https://www.letskorail.com/" target="_blank" rel="noopener">KORAIL / Korail+<span>Pass &amp; KTX seats</span></a>
+    <a class="link" href="https://eng.templestay.com/" target="_blank" rel="noopener">Templestay<span>Official booking</span></a>
+    <a class="link" href="https://english1.visitkorea.or.kr/" target="_blank" rel="noopener">VisitKorea<span>Official tourism info</span></a>
+    <a class="link" href="https://map.naver.com/" target="_blank" rel="noopener">Naver Map<span>Best maps in Korea</span></a>
+    <a class="link" href="https://www.klook.com/en-GB/city/13-seoul-things-to-do/" target="_blank" rel="noopener">Klook Seoul<span>Tours &amp; tickets</span></a>
+    <a class="link" href="https://www.kkday.com/en/product/18839" target="_blank" rel="noopener">Vivaldi Ski Day<span>If you go skiing</span></a>
+  </div>
+
+  <footer>
+    Draft plan · subject to your tweaks · built for a Jan 2027 trip.<br/>
+    Always re-confirm DMZ/JSA, temple stay &amp; train times closer to departure.
+  </footer>
+</div>
+
+<script>
+  // Persist checklist ticks in localStorage
+  var items = document.querySelectorAll('#chk li');
+  items.forEach(function(li, i){
+    var key = 'korea-chk-' + i;
+    if(localStorage.getItem(key) === '1') li.classList.add('done');
+    li.addEventListener('click', function(){
+      li.classList.toggle('done');
+      localStorage.setItem(key, li.classList.contains('done') ? '1' : '0');
+    });
+  });
+</script>
+</body>
+</html>
