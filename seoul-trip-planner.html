@@ -458,6 +458,64 @@
     </ul>
   </div>
 
+  <h2><span class="em">🧳</span> Winter packing list</h2>
+  <div class="note info" style="font-size:14px">Seoul in January typically sits around <b>−5 to −10&nbsp;°C</b> (colder with wind, milder in Busan). It's <b>cold and dry</b>, with occasional snow — think layers, wind protection &amp; warm extremities. Tap items to tick them off.</div>
+
+  <div class="nl-head" style="color:var(--accent2)">🧥 Clothing — layers</div>
+  <ul class="checklist" id="pack">
+    <li>Warm waterproof/windproof coat (parka)</li>
+    <li>Thermal base layers (tops &amp; leggings) ×2–3</li>
+    <li>Fleece / knit mid-layers (jumpers)</li>
+    <li>Insulated/wool trousers or lined jeans</li>
+    <li>Warm socks (wool) — several pairs</li>
+    <li>Gloves (touchscreen-friendly)</li>
+    <li>Warm hat / beanie</li>
+    <li>Scarf or neck gaiter</li>
+    <li>Pyjamas / loungewear (warm)</li>
+    <li>A few smart-casual items for nice dinners/bars</li>
+    <li>Modest layers for temple stay (if you do it)</li>
+    <li>Swimwear — for jjimjilbang / Spa Land</li>
+  </ul>
+
+  <div class="nl-head" style="color:var(--accent2)">👟 Footwear</div>
+  <ul class="checklist" id="pack2">
+    <li>Warm waterproof boots with good grip (icy pavements!)</li>
+    <li>Comfortable walking shoes (lots of walking)</li>
+    <li>Slip-on shoes for spa / temple / indoors</li>
+  </ul>
+
+  <div class="nl-head" style="color:var(--accent2)">❄️ Cold-weather extras</div>
+  <ul class="checklist" id="pack3">
+    <li>Hand &amp; toe warmers (sold everywhere in KR too)</li>
+    <li>Lip balm &amp; heavy moisturiser (dry winter air)</li>
+    <li>Hydrating hand cream</li>
+    <li>Power bank (cold drains phone batteries fast)</li>
+    <li>Reusable water bottle</li>
+    <li>Sunglasses (bright, low winter sun on snow)</li>
+    <li>Ski gear/clothing — only if doing the Vivaldi day (rentable there)</li>
+  </ul>
+
+  <div class="nl-head" style="color:var(--accent2)">🔌 Tech &amp; docs</div>
+  <ul class="checklist" id="pack4">
+    <li>Passports (+ photo/scan backup)</li>
+    <li>Korea eSIM installed (keep Three SIM for UK number)</li>
+    <li>UK→KR plug adapter (Korea uses Type C/F, 220V)</li>
+    <li>Phone + charger, headphones</li>
+    <li>Bank/credit cards (notify bank; tap-to-pay set up)</li>
+    <li>Some cash / T-money card</li>
+    <li>Travel insurance docs (incl. skiing cover)</li>
+    <li>Booking confirmations (hotels, KTX, DMZ)</li>
+  </ul>
+
+  <div class="nl-head" style="color:var(--accent2)">💊 Health &amp; toiletries</div>
+  <ul class="checklist" id="pack5">
+    <li>Any personal medication (+ a copy of prescriptions)</li>
+    <li>Basics: painkillers, cold &amp; flu, plasters</li>
+    <li>Toiletries (hotels provide basics; BYO favourites)</li>
+    <li>Small daypack for day trips</li>
+    <li>Foldable tote/bag for shopping hauls</li>
+  </ul>
+
   <footer>
     Draft plan · subject to your tweaks · built for a Jan 2027 trip.<br/>
     Always re-confirm DMZ/JSA, temple stay &amp; train times closer to departure.
@@ -465,16 +523,24 @@
 </div>
 
 <script>
-  // Persist checklist ticks in localStorage
-  var items = document.querySelectorAll('#chk li');
-  items.forEach(function(li, i){
-    var key = 'korea-chk-' + i;
-    if(localStorage.getItem(key) === '1') li.classList.add('done');
-    li.addEventListener('click', function(){
-      li.classList.toggle('done');
-      localStorage.setItem(key, li.classList.contains('done') ? '1' : '0');
+  // Persist tickable lists (booking checklist + packing lists) in localStorage
+  function makeTickable(listId, prefix){
+    var items = document.querySelectorAll('#' + listId + ' li');
+    items.forEach(function(li, i){
+      var key = prefix + i;
+      if(localStorage.getItem(key) === '1') li.classList.add('done');
+      li.addEventListener('click', function(){
+        li.classList.toggle('done');
+        localStorage.setItem(key, li.classList.contains('done') ? '1' : '0');
+      });
     });
-  });
+  }
+  makeTickable('chk',   'korea-chk-');
+  makeTickable('pack',  'korea-pack1-');
+  makeTickable('pack2', 'korea-pack2-');
+  makeTickable('pack3', 'korea-pack3-');
+  makeTickable('pack4', 'korea-pack4-');
+  makeTickable('pack5', 'korea-pack5-');
 
   // Give each day-by-day card an id (day-1 ... day-15) based on order
   var dayCards = Array.prototype.filter.call(
