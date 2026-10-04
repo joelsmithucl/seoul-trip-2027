@@ -11,6 +11,7 @@
     --ok:#3ddc97; --warn:#ffcf5c; --radius:16px;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{margin:0;background:linear-gradient(180deg,#0b0e1c,#141830 60%);color:var(--ink);
     font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   header{padding:40px 20px 28px;text-align:center;
@@ -30,7 +31,10 @@
   .leg{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
   .leg b{display:block;font-size:13px;color:var(--accent2)}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
-    padding:16px 18px;margin:12px 0;position:relative;overflow:hidden}
+    padding:16px 18px;margin:12px 0;position:relative;overflow:hidden;scroll-margin-top:16px}
+  .card.flash{animation:flash 1.4s ease}
+  @keyframes flash{0%{box-shadow:0 0 0 0 rgba(90,200,250,.0)}
+    15%{box-shadow:0 0 0 3px rgba(90,200,250,.7)}100%{box-shadow:0 0 0 0 rgba(90,200,250,0)}}
   .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
   .city-seoul::before{background:var(--accent)}
   .city-busan::before{background:#5ac8fa}
@@ -72,7 +76,10 @@
   .cal .dow{text-align:center;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--muted);padding:4px 0}
   .cal .cell{min-height:76px;border:1px solid var(--line);border-radius:10px;padding:6px 7px;
-    background:var(--panel);position:relative;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+    background:var(--panel);position:relative;display:flex;flex-direction:column;gap:3px;overflow:hidden;
+    text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s,box-shadow .12s}
+  a.cell{cursor:pointer}
+  a.cell:hover{transform:translateY(-2px);border-color:var(--accent2);box-shadow:0 4px 14px rgba(0,0,0,.3)}
   .cal .cell.empty{background:transparent;border:1px dashed var(--line);opacity:.35}
   .cal .cell::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
   .cal .cell.c-seoul::after{background:var(--accent)}
@@ -131,25 +138,25 @@
     <div class="cell empty"></div>
     <div class="cell empty"></div>
     <div class="cell empty"></div>
-    <div class="cell c-seoul"><span class="dnum">1</span><span class="dcity">Seoul · arrive ✈️</span><span class="dtag">Friends</span></div>
-    <div class="cell c-seoul"><span class="dnum">2</span><span class="dcity">Seoul · palaces</span><span class="dtag">Friends</span></div>
-    <div class="cell c-seoul"><span class="dnum">3</span><span class="dcity">Seoul · DMZ</span><span class="dtag">Friends</span></div>
+    <a class="cell c-seoul" href="#day-1"><span class="dnum">1</span><span class="dcity">Seoul · arrive ✈️</span><span class="dtag">Friends</span></a>
+    <a class="cell c-seoul" href="#day-2"><span class="dnum">2</span><span class="dcity">Seoul · palaces</span><span class="dtag">Friends</span></a>
+    <a class="cell c-seoul" href="#day-3"><span class="dnum">3</span><span class="dcity">Seoul · DMZ</span><span class="dtag">Friends</span></a>
 
     <!-- Week 2 -->
-    <div class="cell c-seoul"><span class="dnum">4</span><span class="dcity">Seoul · hotel</span><span class="dtag">Temple?</span></div>
-    <div class="cell c-seoul"><span class="dnum">5</span><span class="dcity">Seoul</span><span class="dtag">Ski?</span></div>
-    <div class="cell c-move"><span class="dnum">6</span><span class="dcity">→ Jeonju</span><span class="dtag">🚄 1</span></div>
-    <div class="cell c-move"><span class="dnum">7</span><span class="dcity">→ Busan</span><span class="dtag">🚄 2</span></div>
-    <div class="cell c-busan"><span class="dnum">8</span><span class="dcity">Busan · springs</span></div>
-    <div class="cell c-busan"><span class="dnum">9</span><span class="dcity">Busan · coast</span></div>
-    <div class="cell c-move"><span class="dnum">10</span><span class="dcity">→ Gyeongju</span><span class="dtag">🚄 3</span></div>
+    <a class="cell c-seoul" href="#day-4"><span class="dnum">4</span><span class="dcity">Seoul · hotel</span><span class="dtag">Temple?</span></a>
+    <a class="cell c-seoul" href="#day-5"><span class="dnum">5</span><span class="dcity">Seoul</span><span class="dtag">Ski?</span></a>
+    <a class="cell c-move" href="#day-6"><span class="dnum">6</span><span class="dcity">→ Jeonju</span><span class="dtag">🚄 1</span></a>
+    <a class="cell c-move" href="#day-7"><span class="dnum">7</span><span class="dcity">→ Busan</span><span class="dtag">🚄 2</span></a>
+    <a class="cell c-busan" href="#day-8"><span class="dnum">8</span><span class="dcity">Busan · springs</span></a>
+    <a class="cell c-busan" href="#day-9"><span class="dnum">9</span><span class="dcity">Busan · coast</span></a>
+    <a class="cell c-move" href="#day-10"><span class="dnum">10</span><span class="dcity">→ Gyeongju</span><span class="dtag">🚄 3</span></a>
 
     <!-- Week 3 -->
-    <div class="cell c-gyeongju"><span class="dnum">11</span><span class="dcity">Gyeongju · UNESCO</span></div>
-    <div class="cell c-move"><span class="dnum">12</span><span class="dcity">→ Seoul</span><span class="dtag">🚄 4</span></div>
-    <div class="cell c-seoul"><span class="dnum">13</span><span class="dcity">Seoul · culture</span></div>
-    <div class="cell c-seoul"><span class="dnum">14</span><span class="dcity">Seoul · last day</span></div>
-    <div class="cell c-move"><span class="dnum">15</span><span class="dcity">Depart ✈️</span></div>
+    <a class="cell c-gyeongju" href="#day-11"><span class="dnum">11</span><span class="dcity">Gyeongju · UNESCO</span></a>
+    <a class="cell c-move" href="#day-12"><span class="dnum">12</span><span class="dcity">→ Seoul</span><span class="dtag">🚄 4</span></a>
+    <a class="cell c-seoul" href="#day-13"><span class="dnum">13</span><span class="dcity">Seoul · culture</span></a>
+    <a class="cell c-seoul" href="#day-14"><span class="dnum">14</span><span class="dcity">Seoul · last day</span></a>
+    <a class="cell c-move" href="#day-15"><span class="dnum">15</span><span class="dcity">Depart ✈️</span></a>
     <div class="cell empty"></div>
     <div class="cell empty"></div>
   </div>
@@ -347,6 +354,46 @@
     <a class="link" href="https://www.kkday.com/en/product/18839" target="_blank" rel="noopener">Vivaldi Ski Day<span>If you go skiing</span></a>
   </div>
 
+  <h2><span class="em">🍜</span> Food picks &amp; maps by city</h2>
+  <p style="color:var(--muted);font-size:14px;margin:0 0 4px">Each pick opens a Naver Map search (the most reliable maps in Korea). Always double-check opening hours — some old institutions close early or take a weekly rest day.</p>
+
+  <div class="card food-card city-seoul" style="scroll-margin-top:0">
+    <div class="day-head"><span class="date">🏙️ Seoul</span><span class="where">palaces · markets · K-pop</span></div>
+    <ul>
+      <li><b>Gwangjang Market</b> — bindaetteok (mung-bean pancake) &amp; mayak gimbap · <a href="https://map.naver.com/p/search/광장시장" target="_blank" rel="noopener">map</a></li>
+      <li><b>Tosokchon Samgyetang</b> — ginseng chicken soup near Gyeongbokgung (perfect in the cold) · <a href="https://map.naver.com/p/search/토속촌 삼계탕" target="_blank" rel="noopener">map</a></li>
+      <li><b>Myeongdong Kyoja</b> — kalguksu &amp; mandu institution · <a href="https://map.naver.com/p/search/명동교자" target="_blank" rel="noopener">map</a></li>
+      <li><b>Hongdae</b> — street food, pojangmacha &amp; late-night eats · <a href="https://map.naver.com/p/search/홍대" target="_blank" rel="noopener">map</a></li>
+    </ul>
+  </div>
+
+  <div class="card food-card city-jeonju" style="scroll-margin-top:0">
+    <div class="day-head"><span class="date">🏯 Jeonju</span><span class="where">bibimbap · makgeolli · hanok</span></div>
+    <ul>
+      <li><b>Hangukjip (한국집)</b> — classic Jeonju bibimbap, serving it for generations · <a href="https://map.naver.com/p/search/전주 한국집" target="_blank" rel="noopener">map</a></li>
+      <li><b>Gogung (고궁)</b> — well-known bibimbap spot (dolsot &amp; brass-bowl styles) · <a href="https://map.naver.com/p/search/전주 고궁" target="_blank" rel="noopener">map</a></li>
+      <li><b>Makgeolli alley (막걸리 골목)</b> — rice-wine tables groaning with free side dishes · <a href="https://map.naver.com/p/search/전주 막걸리골목" target="_blank" rel="noopener">map</a></li>
+    </ul>
+  </div>
+
+  <div class="card food-card city-busan" style="scroll-margin-top:0">
+    <div class="day-head"><span class="date">🌊 Busan</span><span class="where">seafood · dwaeji gukbap</span></div>
+    <ul>
+      <li><b>Jagalchi Fish Market</b> — pick seafood downstairs, eat it grilled upstairs · <a href="https://map.naver.com/p/search/자갈치시장" target="_blank" rel="noopener">map</a></li>
+      <li><b>Seomyeon dwaeji-gukbap alley</b> — Busan's signature pork-broth rice soup · <a href="https://map.naver.com/p/search/서면 돼지국밥" target="_blank" rel="noopener">map</a></li>
+      <li><b>Gukje &amp; BIFF Square street food</b> — ssiat hotteok (seed-stuffed pancake) · <a href="https://map.naver.com/p/search/BIFF광장" target="_blank" rel="noopener">map</a></li>
+    </ul>
+  </div>
+
+  <div class="card food-card city-gyeongju" style="scroll-margin-top:0">
+    <div class="day-head"><span class="date">⛩️ Gyeongju</span><span class="where">ssambap · Hwangnam bread</span></div>
+    <ul>
+      <li><b>Ssambap Street (쌈밥거리)</b> near Daereungwon — wrap-your-own rice feasts · <a href="https://map.naver.com/p/search/경주 쌈밥거리" target="_blank" rel="noopener">map</a></li>
+      <li><b>Hwangnam-ppang (황남빵)</b> — the famous red-bean pastry, great souvenir · <a href="https://map.naver.com/p/search/황남빵" target="_blank" rel="noopener">map</a></li>
+      <li><b>Gyeongju Jungang Market</b> — local snacks &amp; warm street food · <a href="https://map.naver.com/p/search/경주 중앙시장" target="_blank" rel="noopener">map</a></li>
+    </ul>
+  </div>
+
   <footer>
     Draft plan · subject to your tweaks · built for a Jan 2027 trip.<br/>
     Always re-confirm DMZ/JSA, temple stay &amp; train times closer to departure.
@@ -362,6 +409,27 @@
     li.addEventListener('click', function(){
       li.classList.toggle('done');
       localStorage.setItem(key, li.classList.contains('done') ? '1' : '0');
+    });
+  });
+
+  // Give each day-by-day card an id (day-1 ... day-15) based on order
+  var dayCards = Array.prototype.filter.call(
+    document.querySelectorAll('.card'),
+    function(c){ return c.querySelector('.date') && !c.classList.contains('food-card'); }
+  );
+  dayCards.forEach(function(card, i){ card.id = 'day-' + (i + 1); });
+
+  // Flash the target card when a calendar cell is clicked
+  function flash(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('flash');
+    void el.offsetWidth; // restart animation
+    el.classList.add('flash');
+  }
+  document.querySelectorAll('a.cell[href^="#day-"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      flash(a.getAttribute('href').slice(1));
     });
   });
 </script>
