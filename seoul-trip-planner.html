@@ -67,7 +67,28 @@
   a.link:hover{border-color:var(--accent2);transform:translateY(-2px)}
   a.link span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
   footer{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 10px}
-  @media(max-width:640px){.checklist{columns:1}}
+  /* calendar */
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+  .cal .dow{text-align:center;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);padding:4px 0}
+  .cal .cell{min-height:76px;border:1px solid var(--line);border-radius:10px;padding:6px 7px;
+    background:var(--panel);position:relative;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+  .cal .cell.empty{background:transparent;border:1px dashed var(--line);opacity:.35}
+  .cal .cell::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+  .cal .cell.c-seoul::after{background:var(--accent)}
+  .cal .cell.c-busan::after{background:#5ac8fa}
+  .cal .cell.c-gyeongju::after{background:#c08cff}
+  .cal .cell.c-jeonju::after{background:#ffcf5c}
+  .cal .cell.c-move::after{background:#3ddc97}
+  .cal .dnum{font-weight:700;font-size:14px}
+  .cal .dcity{font-size:11px;color:var(--muted);line-height:1.25}
+  .cal .dtag{font-size:10px;margin-top:auto;padding:1px 6px;border-radius:999px;align-self:flex-start;
+    background:rgba(255,255,255,.06);border:1px solid var(--line);color:#cfd6ff}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:12px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+  @media(max-width:640px){.checklist{columns:1}
+    .cal .cell{min-height:64px;padding:4px 5px}.cal .dcity{display:none}.cal .dtag{display:none}}
 </style>
 </head>
 <body>
@@ -99,6 +120,46 @@
   <div class="note info"><b>🚄 How the KORAIL Pass actually works:</b> there is no "10-day" pass. You choose a pass of <b>2, 3, 4, or 5 flexible travel days</b>, and you use those days on <b>any dates you like within a 10-day window</b> that begins on your chosen start date (travel days need not be consecutive). We're using a <b>5-Day Flexible Saver Pass</b> (for 2 travelling together): the southern loop needs just <b>4 travel days — Jan 6, 7, 10, 12</b> (Seoul→Jeonju→Busan→Gyeongju→Seoul), leaving 1 spare, all inside the 10-day window. Reserve seats early — since Oct 2026, KTX seats open two months before departure.</div>
 
   <div class="note"><b>⏱️ Departure-day math:</b> 13:20 flight → be at ICN by ~11:00 → AREX is ~43 min, so leave central Seoul by ~09:30. <b>Jan 14 is your last real day; Jan 15 is airport-only.</b></div>
+
+  <h2><span class="em">📅</span> Calendar view · January 2027</h2>
+  <div class="cal">
+    <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div>
+    <div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+
+    <!-- Week 1: Jan 1 is a Friday -> 4 empty leading cells -->
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+    <div class="cell c-seoul"><span class="dnum">1</span><span class="dcity">Seoul · arrive ✈️</span><span class="dtag">Friends</span></div>
+    <div class="cell c-seoul"><span class="dnum">2</span><span class="dcity">Seoul · palaces</span><span class="dtag">Friends</span></div>
+    <div class="cell c-seoul"><span class="dnum">3</span><span class="dcity">Seoul · DMZ</span><span class="dtag">Friends</span></div>
+
+    <!-- Week 2 -->
+    <div class="cell c-seoul"><span class="dnum">4</span><span class="dcity">Seoul · hotel</span><span class="dtag">Temple?</span></div>
+    <div class="cell c-seoul"><span class="dnum">5</span><span class="dcity">Seoul</span><span class="dtag">Ski?</span></div>
+    <div class="cell c-move"><span class="dnum">6</span><span class="dcity">→ Jeonju</span><span class="dtag">🚄 1</span></div>
+    <div class="cell c-move"><span class="dnum">7</span><span class="dcity">→ Busan</span><span class="dtag">🚄 2</span></div>
+    <div class="cell c-busan"><span class="dnum">8</span><span class="dcity">Busan · springs</span></div>
+    <div class="cell c-busan"><span class="dnum">9</span><span class="dcity">Busan · coast</span></div>
+    <div class="cell c-move"><span class="dnum">10</span><span class="dcity">→ Gyeongju</span><span class="dtag">🚄 3</span></div>
+
+    <!-- Week 3 -->
+    <div class="cell c-gyeongju"><span class="dnum">11</span><span class="dcity">Gyeongju · UNESCO</span></div>
+    <div class="cell c-move"><span class="dnum">12</span><span class="dcity">→ Seoul</span><span class="dtag">🚄 4</span></div>
+    <div class="cell c-seoul"><span class="dnum">13</span><span class="dcity">Seoul · culture</span></div>
+    <div class="cell c-seoul"><span class="dnum">14</span><span class="dcity">Seoul · last day</span></div>
+    <div class="cell c-move"><span class="dnum">15</span><span class="dcity">Depart ✈️</span></div>
+    <div class="cell empty"></div>
+    <div class="cell empty"></div>
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--accent)"></i>Seoul</span>
+    <span><i style="background:#ffcf5c"></i>Jeonju</span>
+    <span><i style="background:#5ac8fa"></i>Busan</span>
+    <span><i style="background:#c08cff"></i>Gyeongju</span>
+    <span><i style="background:#3ddc97"></i>Train day (🚄 = pass day #)</span>
+  </div>
 
   <h2><span class="em">🗓️</span> Day by day</h2>
 
