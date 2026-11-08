@@ -10,7 +10,7 @@ An interactive, self-contained trip planner for a two-week winter rail trip arou
 
 - **Arrive:** Fri 1 Jan 2027, 16:25 (Incheon ICN)
 - **Depart:** Fri 15 Jan 2027, 13:20
-- **Travellers:** 2 · **Budget:** mid-range · **Rail:** KORAIL 5-Day Flexible Pass
+- **Travellers:** 2 · **Budget:** mid-range · **Rail:** KTX tickets booked individually (KORAIL Pass compared, looks pricier)
 - **Route:** Seoul (friends, then hotel) → single southern loop by rail → back to Seoul to fly home
 
 ### Where we're staying
