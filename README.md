@@ -22,7 +22,7 @@ An interactive, self-contained trip planner for a two-week winter rail trip arou
 | Jan 6–7 | Jeonju | Lahan Hotel Jeonju |
 | Jan 7–10 | Busan (Haeundae) | Hound Garden&Terrace Hotel |
 | Jan 10–12 | Gyeongju | Naganjae (hanok guesthouse) |
-| Jan 12–15 | Seoul (Sinchon) | Brown Suites Sinchon Central |
+| Jan 12–15 | Seoul (Sinchon) | Brown Suites Sinchon Central (option: stay with friends instead) |
 
 ## What's in the planner
 
